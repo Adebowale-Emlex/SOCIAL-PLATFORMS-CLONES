@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADEBOWALE EMLEX - Facebook Clone</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fab fa-facebook-f"></i>
+                <span>facebook</span>
+            </div>
+
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="🔍 Search Facebook">
+            </div>
+
+            <div class="navbar-nav">
+                <a href="../index.html" class="nav-icon" title="Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="watch.html" class="nav-icon" title="Watch">
+                    <i class="fas fa-video"></i>
+                </a>
+                <a href="marketplace.html" class="nav-icon" title="Marketplace">
+                    <i class="fas fa-store"></i>
+                </a>
+                <a href="groups.html" class="nav-icon" title="Groups">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+
+            <div class="navbar-right">
+                <a href="messages.html" class="icon-btn" title="Messages">
+                    <i class="fas fa-comments"></i>
+                </a>
+                <a href="notifications.html" class="icon-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </a>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" id="profileToggle">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-avatar">
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                        <hr>
+                        <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="profile-header">
+        <div class="cover-photo">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1200&h=400&fit=crop" alt="Cover photo">
+        </div>
+        <div class="profile-info-container">
+            <div class="profile-pic-section">
+                <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-pic">
+            </div>
+            <div class="profile-user-info">
+                <h1>ADEBOWALE EMLEX</h1>
+                <p>@adebowaleemlex</p>
+                <p class="bio">💻 Web Developer | 🎨 Designer | 🚀 Tech Enthusiast</p>
+                <div class="friend-count">
+                    <span>2.5K Friends</span>
+                    <span>150 Followers</span>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Add Friend</button>
+                <button class="btn btn-secondary"><i class="fas fa-message"></i> Message</button>
+                <button class="btn btn-secondary"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-main-container">
+        <aside class="profile-sidebar-left">
+            <div class="sidebar-card">
+                <h3>Intro</h3>
+                <div class="intro-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Senior Developer at Tech Corp</span>
+                </div>
+                <div class="intro-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Studied at University of Technology</span>
+                </div>
+                <div class="intro-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lives in San Francisco, CA</span>
+                </div>
+                <div class="intro-item">
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>Born on January 15, 1995</span>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Photos</h3>
+                <div class="photos-grid">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=150&h=150&fit=crop" alt="Photo">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop" alt="Photo">
+                    <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=150&h=150&fit=crop" alt="Photo">
+                    <img src="https://images.unsplash.com/photo-1511576661531-b34c7c5aab00?w=150&h=150&fit=crop" alt="Photo">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop" alt="Photo">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=150&h=150&fit=crop" alt="Photo">
+                </div>
+                <button class="see-all-btn">See All Photos</button>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Friends</h3>
+                <div class="friends-grid">
+                    <div class="friend-card">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Friend">
+                        <p>Sarah Anderson</p>
+                    </div>
+                    <div class="friend-card">
+                        <img src="https://i.pravatar.cc/150?img=8" alt="Friend">
+                        <p>Mike Johnson</p>
+                    </div>
+                    <div class="friend-card">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Friend">
+                        <p>Emily Chen</p>
+                    </div>
+                    <div class="friend-card">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="Friend">
+                        <p>Alex Roberts</p>
+                    </div>
+                    <div class="friend-card">
+                        <img src="https://i.pravatar.cc/150?img=16" alt="Friend">
+                        <p>Jessica Lee</p>
+                    </div>
+                    <div class="friend-card">
+                        <img src="https://i.pravatar.cc/150?img=27" alt="Friend">
+                        <p>David Wilson</p>
+                    </div>
+                </div>
+                <button class="see-all-btn">See All Friends (2.5K)</button>
+            </div>
+        </aside>
+
+
+        <main class="profile-content">
+            <div class="profile-tabs">
+                <button class="tab-btn active">Posts</button>
+                <button class="tab-btn">Photos</button>
+                <button class="tab-btn">Videos</button>
+                <button class="tab-btn">About</button>
+                <button class="tab-btn">Friends</button>
+            </div>
+
+            <div class="profile-posts">
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-user">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="Me" class="post-user-avatar">
+                            <div class="post-user-info">
+                                <div class="post-user-name">ADEBOWALE EMLEX</div>
+                                <div class="post-time">3 days ago</div>
+                            </div>
+                        </div>
+                        <button class="post-menu">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    <div class="post-content">
+                        Excited to announce that I've started working on some amazing new projects! Can't wait to share what I've been building. 🚀
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=500&h=400&fit=crop" alt="Post" class="post-image">
+                    <div class="post-stats">
+                        <span><i class="fas fa-thumbs-up"></i> 542 Likes</span>
+                        <div>
+                            <span>87 Comments</span>
+                            <span style="margin-left: 12px;">23 Shares</span>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn"><i class="fas fa-thumbs-up"></i>Like</button>
+                        <button class="action-btn"><i class="fas fa-comment"></i>Comment</button>
+                        <button class="action-btn"><i class="fas fa-share"></i>Share</button>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-user">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="Me" class="post-user-avatar">
+                            <div class="post-user-info">
+                                <div class="post-user-name">ADEBOWALE EMLEX</div>
+                                <div class="post-time">1 week ago</div>
+                            </div>
+                        </div>
+                        <button class="post-menu">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    <div class="post-content">
+                        Just completed a JavaScript certification course. Feeling accomplished! 💪
+                    </div>
+                    <div class="post-stats">
+                        <span><i class="fas fa-thumbs-up"></i> 289 Likes</span>
+                        <div>
+                            <span>45 Comments</span>
+                            <span style="margin-left: 12px;">12 Shares</span>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn"><i class="fas fa-thumbs-up"></i>Like</button>
+                        <button class="action-btn"><i class="fas fa-comment"></i>Comment</button>
+                        <button class="action-btn"><i class="fas fa-share"></i>Share</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="profile-sidebar-right">
+            <div class="sidebar-card">
+                <h3>Recent Activity</h3>
+                <div class="activity-item">
+                    <span>👍 Liked Sarah Anderson's post</span>
+                    <small>2 hours ago</small>
+                </div>
+                <div class="activity-item">
+                    <span>💬 Commented on Mike Johnson's post</span>
+                    <small>5 hours ago</small>
+                </div>
+                <div class="activity-item">
+                    <span>👥 Added 3 new friends</span>
+                    <small>1 day ago</small>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        // Profile page specific functionality
+        document.getElementById('profileToggle').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.profile-dropdown')) {
+                document.getElementById('dropdownMenu').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

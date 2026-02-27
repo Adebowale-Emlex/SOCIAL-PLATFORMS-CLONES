@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Facebook Clone</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fab fa-facebook-f"></i>
+                <span>facebook</span>
+            </div>
+
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="🔍 Search Facebook">
+            </div>
+
+            <div class="navbar-nav">
+                <a href="../index.html" class="nav-icon" title="Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="watch.html" class="nav-icon" title="Watch">
+                    <i class="fas fa-video"></i>
+                </a>
+                <a href="marketplace.html" class="nav-icon" title="Marketplace">
+                    <i class="fas fa-store"></i>
+                </a>
+                <a href="groups.html" class="nav-icon" title="Groups">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+
+            <div class="navbar-right">
+                <a href="messages.html" class="icon-btn" title="Messages">
+                    <i class="fas fa-comments"></i>
+                </a>
+                <a href="notifications.html" class="icon-btn active-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </a>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" id="profileToggle">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-avatar">
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                        <hr>
+                        <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="notifications-main-container">
+        <div class="notifications-wrapper">
+            <div class="notifications-header">
+                <h1>Notifications</h1>
+                <div class="notifications-controls">
+                    <button class="icon-btn-small" title="Settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button class="icon-btn-small" title="More">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="notifications-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Unread</button>
+                <button class="filter-btn">Friends</button>
+                <button class="filter-btn">Posts</button>
+                <button class="filter-btn">Videos</button>
+                <button class="filter-btn">Groups</button>
+            </div>
+
+            <div class="notifications-list">
+                <div class="notification-item unread">
+                    <img src="https://i.pravatar.cc/150?img=5" alt="Sarah">
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <strong>Sarah Anderson</strong> liked your post
+                        </div>
+                        <small>2 minutes ago</small>
+                    </div>
+                    <div class="notification-preview">
+                        "Just finished an amazing React course! Feeling excited..."
+                    </div>
+                    <button class="close-notification">&times;</button>
+                </div>
+
+                <!-- Unread Notification -->
+                <div class="notification-item unread">
+                    <img src="https://i.pravatar.cc/150?img=8" alt="Mike">
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <strong>Mike Johnson</strong> commented on your post
+                        </div>
+                        <small>15 minutes ago</small>
+                    </div>
+                    <button class="close-notification">&times;</button>
+                </div>
+
+                <!-- Unread Notification -->
+                <div class="notification-item unread">
+                    <img src="https://i.pravatar.cc/150?img=47" alt="Emily">
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <strong>Emily Chen</strong> sent you a friend request
+                        </div>
+                        <small>1 hour ago</small>
+                    </div>
+                    <div class="notification-actions">
+                        <button class="btn-small btn-primary">Confirm</button>
+                        <button class="btn-small btn-secondary">Delete</button>
+                    </div>
+                    <button class="close-notification">&times;</button>
+                </div>
+
+                <!-- Read Notification -->
+                <div class="notification-item">
+                    <img src="https://i.pravatar.cc/150?img=33" alt="Alex">
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <strong>Alex Roberts</strong> shared an article
+                        </div>
+                        <small>3 hours ago</small>
+                    </div>
+                    <button class="close-notification">&times;</button>
+                </div>
+
+                <!-- Read Notification -->
+                <div class="notification-item">
+                    <img src="https://i.pravatar.cc/150?img=16" alt="Jessica">
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <strong>Jessica Lee</strong> has a birthday today
+                        </div>
+                        <small>1 day ago</small>
+                    </div>
+                    <button class="close-notification">&times;</button>
+                </div>
+
+                <!-- Read Notification -->
+                <div class="notification-item">
+                    <img src="https://i.pravatar.cc/150?img=42" alt="Group">
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <strong>Web Developers Group</strong> posted
+                        </div>
+                        <small>2 days ago</small>
+                    </div>
+                    <button class="close-notification">&times;</button>
+                </div>
+
+                <!-- Read Notification -->
+                <div class="notification-item">
+                    <img src="https://i.pravatar.cc/150?img=27" alt="David">
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <strong>David Wilson</strong> reacted to your comment
+                        </div>
+                        <small>3 days ago</small>
+                    </div>
+                    <button class="close-notification">&times;</button>
+                </div>
+
+                <!-- Read Notification -->
+                <div class="notification-item">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=50&h=50&fit=crop" alt="Event">
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            An event you're interested in is coming up
+                        </div>
+                        <small>1 week ago</small>
+                    </div>
+                    <button class="close-notification">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Notifications page functionality
+        document.getElementById('profileToggle').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.profile-dropdown')) {
+                document.getElementById('dropdownMenu').classList.remove('active');
+            }
+        });
+
+        // Close notification
+        document.querySelectorAll('.close-notification').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.closest('.notification-item').style.opacity = '0';
+                setTimeout(() => {
+                    this.closest('.notification-item').remove();
+                }, 300);
+            });
+        });
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Mark as read on hover
+        document.querySelectorAll('.notification-item.unread').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.remove('unread');
+            });
+        });
+    </script>
+</body>
+</html>

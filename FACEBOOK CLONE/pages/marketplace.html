@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - Facebook Clone</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fab fa-facebook-f"></i>
+                <span>facebook</span>
+            </div>
+
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="🔍 Search Facebook">
+            </div>
+
+            <div class="navbar-nav">
+                <a href="../index.html" class="nav-icon" title="Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="watch.html" class="nav-icon" title="Watch">
+                    <i class="fas fa-video"></i>
+                </a>
+                <a href="marketplace.html" class="nav-icon active" title="Marketplace">
+                    <i class="fas fa-store"></i>
+                </a>
+                <a href="groups.html" class="nav-icon" title="Groups">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+
+            <div class="navbar-right">
+                <a href="messages.html" class="icon-btn" title="Messages">
+                    <i class="fas fa-comments"></i>
+                </a>
+                <a href="notifications.html" class="icon-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </a>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" id="profileToggle">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-avatar">
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                        <hr>
+                        <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="marketplace-container">
+        <aside class="marketplace-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-store"></i> Shop</h3>
+                <div class="marketplace-menu">
+                    <a href="#" class="marketplace-menu-item active">
+                        <i class="fas fa-th"></i> All Categories
+                    </a>
+                    <a href="#" class="marketplace-menu-item">
+                        <i class="fas fa-heart"></i> Saved Items
+                    </a>
+                    <a href="#" class="marketplace-menu-item">
+                        <i class="fas fa-package"></i> My Listings
+                    </a>
+                    <a href="#" class="marketplace-menu-item">
+                        <i class="fas fa-shopping-bag"></i> Messages
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Categories</h3>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-laptop"></i> Electronics</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-car"></i> Vehicles</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-home"></i> Real Estate</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-clothes"></i> Fashion</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-couch"></i> Furniture</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-dumbbell"></i> Sports & Outdoors</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-book"></i> Books & Media</a>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Condition</h3>
+                <label class="checkbox-item">
+                    <input type="checkbox" checked> New
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox"> Used
+                </label>
+            </div>
+        </aside>
+
+        <div class="marketplace-grid" id="itemsGrid"></div>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Sample marketplace items
+        const items = [
+            {
+                id: 1,
+                title: 'MacBook Pro 14"',
+                price: '₦450,000',
+                image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=200&h=150&fit=crop',
+                location: 'Lagos, Nigeria'
+            },
+            {
+                id: 2,
+                title: 'Samsung 4K TV 55"',
+                price: '₦180,000',
+                image: 'https://images.unsplash.com/photo-1593642632823-8f875bf08e5c?w=200&h=150&fit=crop',
+                location: 'Abuja, Nigeria'
+            },
+            {
+                id: 3,
+                title: 'Gaming Chair - RGB',
+                price: '₦45,000',
+                image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=150&fit=crop',
+                location: 'Lagos, Nigeria'
+            },
+            {
+                id: 4,
+                title: 'Wireless Headphones',
+                price: '₦25,000',
+                image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=150&fit=crop',
+                location: 'Port Harcourt, Nigeria'
+            },
+            {
+                id: 5,
+                title: 'Standing Desk',
+                price: '₦65,000',
+                image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b3f4?w=200&h=150&fit=crop',
+                location: 'Lagos, Nigeria'
+            },
+            {
+                id: 6,
+                title: 'Mechanical Keyboard',
+                price: '₦15,000',
+                image: 'https://images.unsplash.com/photo-1587829191301-71a73f36a695?w=200&h=150&fit=crop',
+                location: 'Ibadan, Nigeria'
+            },
+            {
+                id: 7,
+                title: 'Portable SSD 1TB',
+                price: '₦28,000',
+                image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=200&h=150&fit=crop',
+                location: 'Lagos, Nigeria'
+            },
+            {
+                id: 8,
+                title: 'USB-C Hub',
+                price: '₦12,000',
+                image: 'https://images.unsplash.com/photo-1625948515291-69613efd103f?w=200&h=150&fit=crop',
+                location: 'Lagos, Nigeria'
+            },
+            {
+                id: 9,
+                title: 'Monitor Stand',
+                price: '₦8,000',
+                image: 'https://images.unsplash.com/photo-1535803841451-247a9d95aaa9?w=200&h=150&fit=crop',
+                location: 'Kano, Nigeria'
+            },
+            {
+                id: 10,
+                title: 'Webcam 4K',
+                price: '₦22,000',
+                image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=200&h=150&fit=crop',
+                location: 'Lagos, Nigeria'
+            },
+            {
+                id: 11,
+                title: 'Phone Stand',
+                price: '₦5,000',
+                image: 'https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=200&h=150&fit=crop',
+                location: 'Lagos, Nigeria'
+            },
+            {
+                id: 12,
+                title: 'Desk Lamp LED',
+                price: '₦9,000',
+                image: 'https://images.unsplash.com/photo-1565636192335-14c0edc13321?w=200&h=150&fit=crop',
+                location: 'Lagos, Nigeria'
+            }
+        ];
+
+        // Load items
+        const itemGrid = document.getElementById('itemGrid');
+        items.forEach(item => {
+            const itemCard = document.createElement('div');
+            itemCard.className = 'item-card';
+            itemCard.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="item-image">
+                <div class="item-info">
+                    <div class="item-title">${item.title}</div>
+                    <div class="item-price">${item.price}</div>
+                    <div class="item-location"><i class="fas fa-map-marker-alt"></i> ${item.location}</div>
+                </div>
+            `;
+            itemGrid.appendChild(itemCard);
+        });
+
+        setupProfileDropdown();
+    </script>
+                    </a>
+                    <a href="#" class="marketplace-menu-item">
+                        <i class="fas fa-envelope"></i> Messages
+                    </a>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 12px;">
+                    <i class="fas fa-plus"></i> Sell Something
+                </button>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Categories</h3>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-couch"></i> Furniture</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-car"></i> Vehicles</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-mobile-alt"></i> Electronics</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-dressform"></i> Clothing</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-home"></i> Home & Garden</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-sports-ball"></i> Sports</a>
+                <a href="#" class="marketplace-menu-item"><i class="fas fa-gamepad"></i> Toys & Games</a>
+            </div>
+        </aside>
+
+        <!-- CENTER CONTENT -->
+        <main class="marketplace-content">
+            <!-- SEARCH AND FILTERS -->
+            <div class="marketplace-header">
+                <div class="search-filters">
+                    <input type="text" placeholder="Search marketplace" class="marketplace-search">
+                    <div class="filter-group">
+                        <select class="filter-select">
+                            <option>All Categories</option>
+                            <option>Furniture</option>
+                            <option>Vehicles</option>
+                            <option>Electronics</option>
+                            <option>Clothing</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>Newest</option>
+                            <option>Most Relevant</option>
+                            <option>Lowest Price</option>
+                            <option>Highest Price</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LISTINGS GRID -->
+            <div class="listings-grid">
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300&h=300&fit=crop" alt="Product">
+                        <span class="listing-badge">SOLD</span>
+                    </div>
+                    <div class="listing-info">
+                        <h4>Apple AirPods Pro</h4>
+                        <p class="price">$150</p>
+                        <small>San Francisco, CA • 2 days ago</small>
+                        <div class="seller-info">
+                            <img src="https://i.pravatar.cc/40?img=5" alt="Seller">
+                            <span>Sarah Anderson</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop" alt="Product">
+                    </div>
+                    <div class="listing-info">
+                        <h4>Vintage Watch Collection</h4>
+                        <p class="price">$200</p>
+                        <small>New York, NY • 1 day ago</small>
+                        <div class="seller-info">
+                            <img src="https://i.pravatar.cc/40?img=8" alt="Seller">
+                            <span>Mike Johnson</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=300&fit=crop" alt="Product">
+                    </div>
+                    <div class="listing-info">
+                        <h4>Designer Sunglasses</h4>
+                        <p class="price">$85</p>
+                        <small>Los Angeles, CA • 5 hours ago</small>
+                        <div class="seller-info">
+                            <img src="https://i.pravatar.cc/40?img=47" alt="Seller">
+                            <span>Emily Chen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=300&h=300&fit=crop" alt="Product">
+                    </div>
+                    <div class="listing-info">
+                        <h4>Running Shoes - Nike</h4>
+                        <p class="price">$75</p>
+                        <small>Boston, MA • 3 days ago</small>
+                        <div class="seller-info">
+                            <img src="https://i.pravatar.cc/40?img=33" alt="Seller">
+                            <span>Alex Roberts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1546868871-7541c2acfa46?w=300&h=300&fit=crop" alt="Product">
+                    </div>
+                    <div class="listing-info">
+                        <h4>Fitness Tracker Watch</h4>
+                        <p class="price">$120</p>
+                        <small>Seattle, WA • 1 week ago</small>
+                        <div class="seller-info">
+                            <img src="https://i.pravatar.cc/40?img=16" alt="Seller">
+                            <span>Jessica Lee</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop" alt="Product">
+                    </div>
+                    <div class="listing-info">
+                        <h4>Gaming Mouse and Keyboard</h4>
+                        <p class="price">$95</p>
+                        <small>Austin, TX • 4 days ago</small>
+                        <div class="seller-info">
+                            <img src="https://i.pravatar.cc/40?img=27" alt="Seller">
+                            <span>David Wilson</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop" alt="Product">
+                    </div>
+                    <div class="listing-info">
+                        <h4>Laptop Stand & Cooling Pad</h4>
+                        <p class="price">$45</p>
+                        <small>Denver, CO • 2 days ago</small>
+                        <div class="seller-info">
+                            <img src="https://i.pravatar.cc/40?img=42" alt="Seller">
+                            <span>Rachel Kim</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=300&h=300&fit=crop" alt="Product">
+                    </div>
+                    <div class="listing-info">
+                        <h4>Portable Bluetooth Speaker</h4>
+                        <p class="price">$65</p>
+                        <small>Portland, OR • 1 week ago</small>
+                        <div class="seller-info">
+                            <img src="https://i.pravatar.cc/40?img=31" alt="Seller">
+                            <span>Tom Brown</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop" alt="Product">
+                    </div>
+                    <div class="listing-info">
+                        <h4>USB-C Hub Adapter</h4>
+                        <p class="price">$35</p>
+                        <small>Chicago, IL • 3 days ago</small>
+                        <div class="seller-info">
+                            <img src="https://i.pravatar.cc/40?img=50" alt="Seller">
+                            <span>Lisa Anderson</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="marketplace-sidebar-right">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-fire"></i> Hot Deals</h3>
+                <div class="deal-item">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80&h=80&fit=crop" alt="Deal">
+                    <div>
+                        <h4>Tech Gadgets</h4>
+                        <p>Up to 50% off</p>
+                    </div>
+                </div>
+                <div class="deal-item">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=80&h=80&fit=crop" alt="Deal">
+                    <div>
+                        <h4>Clothing Sale</h4>
+                        <p>All items discounted</p>
+                    </div>
+                </div>
+                <div class="deal-item">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80&h=80&fit=crop" alt="Deal">
+                    <div>
+                        <h4>Accessories</h4>
+                        <p>Buy 2 Get 1 Free</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Marketplace page functionality
+        document.getElementById('profileToggle').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.profile-dropdown')) {
+                document.getElementById('dropdownMenu').classList.remove('active');
+            }
+        });
+
+        // Menu items
+        document.querySelectorAll('.marketplace-menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.marketplace-menu-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Listing cards click
+        document.querySelectorAll('.listing-card').forEach(card => {
+            card.addEventListener('click', function() {
+                console.log('Viewing product:', this.querySelector('h4').textContent);
+            });
+        });
+
+        // Sell button
+        document.querySelector('.btn.btn-primary').addEventListener('click', function() {
+            alert('Create new listing modal would open here');
+        });
+    </script>
+</body>
+</html>

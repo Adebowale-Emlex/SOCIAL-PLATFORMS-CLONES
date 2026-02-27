@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Google</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-right">
+                <a href="#" class="nav-link" id="nav-gmail">Gmail</a>
+                <a href="#" class="nav-link" id="nav-images">Images</a>
+                <a href="#" class="sign-in-btn" id="nav-signin">Sign in</a>
+                <div class="profile-icon" title="Google Account"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <section class="logo-section">
+            <h1 class="google-logo">Google</h1>
+        </section>
+
+        <section class="search-section">
+            <div class="search-box-wrapper">
+                <input 
+                    type="text" 
+                    class="search-box" 
+                    id="search-input"
+                    placeholder="Search Google or type a URL"
+                    aria-label="Search"
+                >
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="buttons-container">
+                <button class="btn btn-search" id="btn-search" aria-label="Google Search">
+                    Google Search
+                </button>
+                <button class="btn btn-lucky" id="btn-lucky" aria-label="I'm Feeling Lucky">
+                    I'm Feeling Lucky
+                </button>
+            </div>
+
+            <div class="ai-mode-section">
+                <a href="#" class="ai-mode-link" id="ai-mode-link">Try AI Mode</a>
+            </div>
+
+            <div class="language-section">
+                <span class="language-text" id="language-label">Google offered in:</span>
+                <div class="language-links-wrapper">
+                    <a href="#" class="language-link" data-lang="en">English</a>
+                    <a href="#" class="language-link" data-lang="yoruba">Yorùbá</a>
+                    <a href="#" class="language-link" data-lang="igbo">Igbo</a>
+                    <a href="#" class="language-link" data-lang="hausa">Hausa</a>
+                    <a href="#" class="language-link" data-lang="fulfulde">Pulaar</a>
+                    <a href="#" class="language-link" data-lang="kanuri">Kanuri</a>
+                    <a href="#" class="language-link" data-lang="tiv">Tiv</a>
+                    <a href="#" class="language-link" data-lang="ijaw">Ijaw</a>
+                    <a href="#" class="language-link" data-lang="edo">Edo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-country">
+            <p id="footer-country">Nigeria</p>
+        </div>
+
+        <div class="footer-links-container">
+            <div class="footer-links-left">
+                <a href="#" class="footer-link" id="footer-about">About</a>
+                <a href="#" class="footer-link" id="footer-advertising">Advertising</a>
+                <a href="#" class="footer-link" id="footer-business">Business</a>
+                <a href="#" class="footer-link" id="footer-howsearch">How Search works</a>
+            </div>
+
+            <div class="footer-links-right">
+                <a href="#" class="footer-link" id="footer-privacy">Privacy</a>
+                <a href="#" class="footer-link" id="footer-terms">Terms</a>
+                <a href="#" class="footer-link" id="footer-settings">Settings</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Clone</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fab fa-facebook-f"></i>
+                <span>facebook</span>
+            </div>
+
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder=" Search Facebook">
+            </div>
+
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-icon active" title="Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="pages/watch.html" class="nav-icon" title="Watch">
+                    <i class="fas fa-video"></i>
+                </a>
+                <a href="pages/marketplace.html" class="nav-icon" title="Marketplace">
+                    <i class="fas fa-store"></i>
+                </a>
+                <a href="pages/groups.html" class="nav-icon" title="Groups">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+
+            <div class="navbar-right">
+                <a href="pages/messages.html" class="icon-btn" title="Messages">
+                    <i class="fas fa-comments"></i>
+                </a>
+                <a href="pages/notifications.html" class="icon-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">5</span>
+                </a>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" id="profileToggle">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-avatar">
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="pages/profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="pages/settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                        <hr>
+                        <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <aside class="sidebar-left">
+            <a href="pages/profile.html" class="sidebar-item user-profile">
+                <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="avatar">
+                <span>ADEBOWALE EMLEX</span>
+            </a>
+
+            <a href="index.html" class="sidebar-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="pages/friends.html" class="sidebar-item">
+                <i class="fas fa-users"></i>
+                <span>Friends</span>
+            </a>
+
+            <a href="pages/watch.html" class="sidebar-item">
+                <i class="fas fa-video"></i>
+                <span>Watch</span>
+            </a>
+
+            <a href="pages/marketplace.html" class="sidebar-item">
+                <i class="fas fa-store"></i>
+                <span>Marketplace</span>
+            </a>
+
+            <a href="pages/groups.html" class="sidebar-item">
+                <i class="fas fa-users"></i>
+                <span>Groups</span>
+            </a>
+
+            <div class="sidebar-item">
+                <i class="fas fa-calendar"></i>
+                <span>Events</span>
+            </div>
+
+            <div class="sidebar-divider"></div>
+
+            <h3 class="sidebar-title">Shortcuts</h3>
+
+            <div class="sidebar-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Programming</span>
+            </div>
+
+            <div class="sidebar-item">
+                <i class="fas fa-basketball"></i>
+                <span>Sports</span>
+            </div>
+
+            <div class="sidebar-item">
+                <i class="fas fa-gamepad"></i>
+                <span>Gaming</span>
+            </div>
+
+            <div class="sidebar-divider"></div>
+
+            <button class="see-more-btn">
+                <i class="fas fa-chevron-down"></i> See More
+            </button>
+        </aside>
+
+
+        <main class="feed">
+
+            <div class="create-post-card">
+                <div class="create-post-header">
+                    <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="avatar">
+                    <input type="text" placeholder="What's on your mind?" class="post-input" id="postInput">
+                </div>
+                <div class="create-post-footer">
+                    <button class="post-option" id="photoBtn">
+                        <i class="fas fa-image"></i> Photo/Video
+                    </button>
+                    <button class="post-option">
+                        <i class="fas fa-face-smile"></i> Feeling/Activity
+                    </button>
+                    <button class="post-option">
+                        <i class="fas fa-map-marker-alt"></i> Check In
+                    </button>
+                </div>
+            </div>
+
+            <div class="stories-container" id="storiesContainer"></div>
+
+            <div class="posts-container" id="postsContainer"></div>
+        </main>
+
+        <aside class="sidebar-right">
+            <div class="sponsored-section">
+                <div class="section-header">
+                    <h3>Sponsored</h3>
+                </div>
+                <div class="sponsored-item">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=125&h=125&fit=crop" alt="Ad" class="ad-image">
+                    <div class="ad-text">
+                        <p>Premium Course</p>
+                        <small>Learn React & Web Development</small>
+                    </div>
+                </div>
+                <div class="sponsored-item">
+                    <img src="https://images.unsplash.com/photo-1514821228042-2b8823db3812?w=125&h=125&fit=crop" alt="Ad" class="ad-image">
+                    <div class="ad-text">
+                        <p>Free Hosting</p>
+                        <small>Deploy your projects today</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contacts-section">
+                <div class="section-header">
+                    <h3>Contacts</h3>
+                    <div class="icons">
+                        <i class="fas fa-video"></i>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+                <div class="contacts-list" id="contactsList">
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

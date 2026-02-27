@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Facebook Clone</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fab fa-facebook-f"></i>
+                <span>facebook</span>
+            </div>
+
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="🔍 Search Facebook">
+            </div>
+
+            <div class="navbar-nav">
+                <a href="../index.html" class="nav-icon" title="Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="watch.html" class="nav-icon" title="Watch">
+                    <i class="fas fa-video"></i>
+                </a>
+                <a href="marketplace.html" class="nav-icon" title="Marketplace">
+                    <i class="fas fa-store"></i>
+                </a>
+                <a href="groups.html" class="nav-icon" title="Groups">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+
+            <div class="navbar-right">
+                <a href="messages.html" class="icon-btn" title="Messages">
+                    <i class="fas fa-comments"></i>
+                </a>
+                <a href="notifications.html" class="icon-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </a>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" id="profileToggle">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-avatar">
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                        <hr>
+                        <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="settings-container">
+        <aside class="settings-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-cog"></i> Settings</h3>
+                <div class="settings-menu">
+                    <a href="#" class="settings-item active">
+                        <i class="fas fa-cog"></i> General
+                    </a>
+                    <a href="#" class="settings-item">
+                        <i class="fas fa-lock"></i> Privacy & Safety
+                    </a>
+                    <a href="#" class="settings-item">
+                        <i class="fas fa-bell"></i> Notifications
+                    </a>
+                    <a href="#" class="settings-item">
+                        <i class="fas fa-users"></i> Friends
+                    </a>
+                    <a href="#" class="settings-item">
+                        <i class="fas fa-photo-video"></i> Photos & Videos
+                    </a>
+                    <a href="#" class="settings-item">
+                        <i class="fas fa-user-shield"></i> Blocking
+                    </a>
+                    <a href="#" class="settings-item">
+                        <i class="fas fa-palette"></i> Preferences
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="settings-content">
+            <h2>General Settings</h2>
+
+            <div class="settings-section">
+                <h3>Account</h3>
+                <div class="settings-option">
+                    <div>
+                        <div class="settings-option-label">Email Address</div>
+                        <div class="settings-option-description">adebowale.emlex@email.com</div>
+                    </div>
+                    <button class="btn-small">Change</button>
+                </div>
+                <div class="settings-option">
+                    <div>
+                        <div class="settings-option-label">Phone Number</div>
+                        <div class="settings-option-description">+234 801 234 5678</div>
+                    </div>
+                    <button class="btn-small">Change</button>
+                </div>
+                <div class="settings-option">
+                    <div>
+                        <div class="settings-option-label">Password</div>
+                        <div class="settings-option-description">••••••••</div>
+                    </div>
+                    <button class="btn-small">Change</button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Notifications</h3>
+                <div class="settings-option">
+                    <div>
+                        <div class="settings-option-label">Email Notifications</div>
+                        <div class="settings-option-description">Receive updates via email</div>
+                    </div>
+                    <button class="toggle-switch active"></button>
+                </div>
+                <div class="settings-option">
+                    <div>
+                        <div class="settings-option-label">Push Notifications</div>
+                        <div class="settings-option-description">Receive push notifications</div>
+                    </div>
+                    <button class="toggle-switch active"></button>
+                </div>
+                <div class="settings-option">
+                    <div>
+                        <div class="settings-option-label">Message Notifications</div>
+                        <div class="settings-option-description">Notify for new messages</div>
+                    </div>
+                    <button class="toggle-switch active"></button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Privacy</h3>
+                <div class="settings-option">
+                    <div>
+                        <div class="settings-option-label">Who can see your profile?</div>
+                        <div class="settings-option-description">Public</div>
+                    </div>
+                    <select class="settings-select">
+                        <option>Public</option>
+                        <option>Friends Only</option>
+                        <option>Private</option>
+                    </select>
+                </div>
+                <div class="settings-option">
+                    <div>
+                        <div class="settings-option-label">Allow friend requests?</div>
+                        <div class="settings-option-description">From anyone</div>
+                    </div>
+                    <button class="toggle-switch active"></button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Danger Zone</h3>
+                <div class="settings-option">
+                    <div>
+                        <div class="settings-option-label">Deactivate Account</div>
+                        <div class="settings-option-description">Temporarily disable your account</div>
+                    </div>
+                    <button class="btn-danger">Deactivate</button>
+                </div>
+                <div class="settings-option">
+                    <div>
+                        <div class="settings-option-label">Delete Account</div>
+                        <div class="settings-option-description">Permanently delete your account</div>
+                    </div>
+                    <button class="btn-danger">Delete</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        setupProfileDropdown();
+
+        // Settings menu
+        document.querySelectorAll('.settings-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.settings-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Toggle switches
+        document.querySelectorAll('.toggle-switch').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        // Change buttons
+        document.querySelectorAll('.btn-small').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('Update dialog would open here');
+            });
+        });
+
+        // Danger buttons
+        document.querySelectorAll('.btn-danger').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const action = this.textContent.trim();
+                if (confirm('Are you sure you want to ' + action.toLowerCase() + '?')) {
+                    alert('This action would be processed');
+                }
+            });
+        });
+    </script>
+                        <input type="password" value="••••••••" disabled>
+                        <button class="btn-small btn-secondary">Change Password</button>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>Language</label>
+                    <div class="setting-item">
+                        <select>
+                            <option selected>English (US)</option>
+                            <option>Spanish</option>
+                            <option>French</option>
+                            <option>German</option>
+                            <option>Chinese</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>Date Format</label>
+                    <div class="setting-item">
+                        <select>
+                            <option selected>MM/DD/YYYY</option>
+                            <option>DD/MM/YYYY</option>
+                            <option>YYYY-MM-DD</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRIVACY SETTINGS -->
+            <div class="settings-section">
+                <h2><i class="fas fa-lock"></i> Privacy & Safety</h2>
+                
+                <div class="settings-group">
+                    <label>Who can see your profile?</label>
+                    <div class="setting-item">
+                        <select>
+                            <option selected>Friends Only</option>
+                            <option>Public</option>
+                            <option>Private</option>
+                            <option>Custom</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>Who can message you?</label>
+                    <div class="setting-item">
+                        <select>
+                            <option selected>Everyone</option>
+                            <option>Friends Only</option>
+                            <option>Friends of Friends</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>Who can see your posts?</label>
+                    <div class="setting-item">
+                        <select>
+                            <option selected>Friends</option>
+                            <option>Public</option>
+                            <option>Only Me</option>
+                            <option>Custom</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>Activity Status</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="activityToggle" checked>
+                        <label for="activityToggle">Show when you're active</label>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>Two-Factor Authentication</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="2faToggle">
+                        <label for="2faToggle">Enable 2FA for extra security</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOTIFICATION SETTINGS -->
+            <div class="settings-section">
+                <h2><i class="fas fa-bell"></i> Notifications</h2>
+                
+                <div class="settings-group">
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="likeNotif" checked>
+                        <label for="likeNotif">Notify me when someone likes my post</label>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="commentNotif" checked>
+                        <label for="commentNotif">Notify me when someone comments</label>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="friendNotif" checked>
+                        <label for="friendNotif">Notify me of friend requests</label>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="messageNotif" checked>
+                        <label for="messageNotif">Notify me of new messages</label>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>Notification Frequency</label>
+                    <div class="setting-item">
+                        <select>
+                            <option selected>Real-time</option>
+                            <option>Hourly Digest</option>
+                            <option>Daily Digest</option>
+                            <option>Weekly Digest</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THEME PREFERENCES -->
+            <div class="settings-section">
+                <h2><i class="fas fa-palette"></i> Preferences</h2>
+                
+                <div class="settings-group">
+                    <label>Theme</label>
+                    <div class="theme-options">
+                        <button class="theme-btn active" data-theme="light">
+                            <i class="fas fa-sun"></i> Light
+                        </button>
+                        <button class="theme-btn" data-theme="dark">
+                            <i class="fas fa-moon"></i> Dark
+                        </button>
+                        <button class="theme-btn" data-theme="auto">
+                            <i class="fas fa-adjust"></i> Auto
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="betaFeatures">
+                        <label for="betaFeatures">Try new experimental features</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCOUNT ACTIONS -->
+            <div class="settings-section">
+                <h2><i class="fas fa-sign-out-alt"></i> Account Actions</h2>
+                
+                <div class="settings-group">
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-mobile-alt"></i> Active Sessions
+                    </button>
+                </div>
+
+                <div class="settings-group">
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Download Your Data
+                    </button>
+                </div>
+
+                <div class="settings-group">
+                    <button class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Deactivate Account
+                    </button>
+                </div>
+
+                <div class="settings-group">
+                    <button class="btn btn-danger">
+                        <i class="fas fa-times-circle"></i> Delete Account
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Settings page functionality
+        document.getElementById('profileToggle').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.profile-dropdown')) {
+                document.getElementById('dropdownMenu').classList.remove('active');
+            }
+        });
+
+        // Settings menu
+        document.querySelectorAll('.settings-menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.settings-menu-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Theme selection
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                console.log('Theme changed to:', this.dataset.theme);
+            });
+        });
+
+        // Change buttons
+        document.querySelectorAll('.btn-small.btn-secondary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('Update dialog would open here');
+            });
+        });
+
+        // Danger buttons
+        document.querySelectorAll('.btn-danger').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const action = this.textContent.trim();
+                if (confirm('Are you sure you want to ' + action.toLowerCase() + '?')) {
+                    alert('This action would be processed');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends - Facebook Clone</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fab fa-facebook-f"></i>
+                <span>facebook</span>
+            </div>
+
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="🔍 Search Facebook">
+            </div>
+
+            <div class="navbar-nav">
+                <a href="../index.html" class="nav-icon" title="Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="watch.html" class="nav-icon" title="Watch">
+                    <i class="fas fa-video"></i>
+                </a>
+                <a href="marketplace.html" class="nav-icon" title="Marketplace">
+                    <i class="fas fa-store"></i>
+                </a>
+                <a href="groups.html" class="nav-icon" title="Groups">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+
+            <div class="navbar-right">
+                <a href="messages.html" class="icon-btn" title="Messages">
+                    <i class="fas fa-comments"></i>
+                </a>
+                <a href="notifications.html" class="icon-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </a>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" id="profileToggle">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-avatar">
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                        <hr>
+                        <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="friends-container">
+        <div class="friends-header">
+            <div>
+                <h2>Friends</h2>
+                <p class="friends-count">You have 248 friends</p>
+            </div>
+            <div class="friends-actions">
+                <button class="btn-action"><i class="fas fa-user-plus"></i> Add Friends</button>
+                <button class="btn-action"><i class="fas fa-search"></i> Find Friends</button>
+            </div>
+        </div>
+
+        <div class="friends-tabs">
+            <button class="friends-tab active">Friends</button>
+            <button class="friends-tab">Friend Requests</button>
+            <button class="friends-tab">Suggestions</button>
+            <button class="friends-tab">Birthdays</button>
+        </div>
+
+        <div class="friends-grid" id="friendsGrid">
+            <!-- Friends will be loaded here -->
+        </div>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Sample friends data
+        const friends = [
+            {
+                id: 1,
+                name: 'Sarah Anderson',
+                image: 'https://i.pravatar.cc/150?img=5',
+                mutual: '45 mutual friends'
+            },
+            {
+                id: 2,
+                name: 'Mike Johnson',
+                image: 'https://i.pravatar.cc/150?img=8',
+                mutual: '32 mutual friends'
+            },
+            {
+                id: 3,
+                name: 'Emily Chen',
+                image: 'https://i.pravatar.cc/150?img=47',
+                mutual: '28 mutual friends'
+            },
+            {
+                id: 4,
+                name: 'Alex Roberts',
+                image: 'https://i.pravatar.cc/150?img=33',
+                mutual: '52 mutual friends'
+            },
+            {
+                id: 5,
+                name: 'Jessica Lee',
+                image: 'https://i.pravatar.cc/150?img=16',
+                mutual: '38 mutual friends'
+            },
+            {
+                id: 6,
+                name: 'David Wilson',
+                image: 'https://i.pravatar.cc/150?img=27',
+                mutual: '41 mutual friends'
+            },
+            {
+                id: 7,
+                name: 'Rachel Kim',
+                image: 'https://i.pravatar.cc/150?img=42',
+                mutual: '29 mutual friends'
+            },
+            {
+                id: 8,
+                name: 'Tom Brown',
+                image: 'https://i.pravatar.cc/150?img=31',
+                mutual: '35 mutual friends'
+            },
+            {
+                id: 9,
+                name: 'Lisa Anderson',
+                image: 'https://i.pravatar.cc/150?img=50',
+                mutual: '44 mutual friends'
+            },
+            {
+                id: 10,
+                name: 'James Miller',
+                image: 'https://i.pravatar.cc/150?img=23',
+                mutual: '37 mutual friends'
+            },
+            {
+                id: 11,
+                name: 'Sophie Taylor',
+                image: 'https://i.pravatar.cc/150?img=55',
+                mutual: '31 mutual friends'
+            },
+            {
+                id: 12,
+                name: 'Chris Evans',
+                image: 'https://i.pravatar.cc/150?img=19',
+                mutual: '48 mutual friends'
+            }
+        ];
+
+        // Load friends
+        const friendsGrid = document.getElementById('friendsGrid');
+        friends.forEach(friend => {
+            const friendCard = document.createElement('div');
+            friendCard.className = 'friend-card';
+            friendCard.innerHTML = `
+                <img src="${friend.image}" alt="${friend.name}" class="friend-card-img">
+                <div class="friend-card-info">
+                    <div class="friend-card-name">${friend.name}</div>
+                    <div class="friend-card-mutual">${friend.mutual}</div>
+                    <div class="friend-card-buttons">
+                        <button><i class="fas fa-comments"></i> Message</button>
+                        <button><i class="fas fa-ellipsis-h"></i></button>
+                    </div>
+                </div>
+            `;
+            friendsGrid.appendChild(friendCard);
+        });
+
+        // Tab switching
+        document.querySelectorAll('.friends-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.friends-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        setupProfileDropdown();
+    </script>
+                <h2>Friend Requests (3)</h2>
+                <div class="friend-request-grid">
+                    <div class="friend-request-card">
+                        <img src="https://i.pravatar.cc/150?img=50" alt="Friend">
+                        <h4>Rachel Kim</h4>
+                        <p>12 mutual friends</p>
+                        <div class="friend-actions">
+                            <button class="btn-small btn-primary">Confirm</button>
+                            <button class="btn-small btn-secondary">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="friend-request-card">
+                        <img src="https://i.pravatar.cc/150?img=51" alt="Friend">
+                        <h4>Tom Brown</h4>
+                        <p>8 mutual friends</p>
+                        <div class="friend-actions">
+                            <button class="btn-small btn-primary">Confirm</button>
+                            <button class="btn-small btn-secondary">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="friend-request-card">
+                        <img src="https://i.pravatar.cc/150?img=52" alt="Friend">
+                        <h4>Lisa Anderson</h4>
+                        <p>5 mutual friends</p>
+                        <div class="friend-actions">
+                            <button class="btn-small btn-primary">Confirm</button>
+                            <button class="btn-small btn-secondary">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRIENDS YOU MAY KNOW -->
+            <div class="friends-section">
+                <h2>People You May Know</h2>
+                <div class="friend-suggestion-grid">
+                    <div class="friend-card-large">
+                        <img src="https://i.pravatar.cc/150?img=60" alt="Friend">
+                        <h4>David Miller</h4>
+                        <p>18 mutual friends</p>
+                        <button class="btn-small btn-primary">Add Friend</button>
+                    </div>
+
+                    <div class="friend-card-large">
+                        <img src="https://i.pravatar.cc/150?img=61" alt="Friend">
+                        <h4>Catherine Stone</h4>
+                        <p>12 mutual friends</p>
+                        <button class="btn-small btn-primary">Add Friend</button>
+                    </div>
+
+                    <div class="friend-card-large">
+                        <img src="https://i.pravatar.cc/150?img=62" alt="Friend">
+                        <h4>James Wilson</h4>
+                        <p>9 mutual friends</p>
+                        <button class="btn-small btn-primary">Add Friend</button>
+                    </div>
+
+                    <div class="friend-card-large">
+                        <img src="https://i.pravatar.cc/150?img=63" alt="Friend">
+                        <h4>Emma Thompson</h4>
+                        <p>15 mutual friends</p>
+                        <button class="btn-small btn-primary">Add Friend</button>
+                    </div>
+
+                    <div class="friend-card-large">
+                        <img src="https://i.pravatar.cc/150?img=64" alt="Friend">
+                        <h4>Oliver Davis</h4>
+                        <p>7 mutual friends</p>
+                        <button class="btn-small btn-primary">Add Friend</button>
+                    </div>
+
+                    <div class="friend-card-large">
+                        <img src="https://i.pravatar.cc/150?img=65" alt="Friend">
+                        <h4>Sophia Martinez</h4>
+                        <p>11 mutual friends</p>
+                        <button class="btn-small btn-primary">Add Friend</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALL FRIENDS -->
+            <div class="friends-section">
+                <h2>All Friends (2.5K)</h2>
+                <div class="friends-list">
+                    <div class="friend-list-item">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Friend">
+                        <div class="friend-list-info">
+                            <h4>Sarah Anderson</h4>
+                            <small>Friends for 2 years</small>
+                        </div>
+                        <button class="btn-small btn-secondary">Friends <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="friend-list-item">
+                        <img src="https://i.pravatar.cc/150?img=8" alt="Friend">
+                        <div class="friend-list-info">
+                            <h4>Mike Johnson</h4>
+                            <small>Friends for 1 year</small>
+                        </div>
+                        <button class="btn-small btn-secondary">Friends <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="friend-list-item">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Friend">
+                        <div class="friend-list-info">
+                            <h4>Emily Chen</h4>
+                            <small>Friends for 6 months</small>
+                        </div>
+                        <button class="btn-small btn-secondary">Friends <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="friend-list-item">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="Friend">
+                        <div class="friend-list-info">
+                            <h4>Alex Roberts</h4>
+                            <small>Friends for 3 months</small>
+                        </div>
+                        <button class="btn-small btn-secondary">Friends <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="friend-list-item">
+                        <img src="https://i.pravatar.cc/150?img=16" alt="Friend">
+                        <div class="friend-list-info">
+                            <h4>Jessica Lee</h4>
+                            <small>Friends for 5 months</small>
+                        </div>
+                        <button class="btn-small btn-secondary">Friends <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="friend-list-item">
+                        <img src="https://i.pravatar.cc/150?img=27" alt="Friend">
+                        <div class="friend-list-info">
+                            <h4>David Wilson</h4>
+                            <small>Friends for 1 month</small>
+                        </div>
+                        <button class="btn-small btn-secondary">Friends <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="friends-sidebar-right">
+            <div class="sidebar-card">
+                <h3>Birthday Coming Up</h3>
+                <div class="birthday-item">
+                    <img src="https://i.pravatar.cc/150?img=16" alt="Jessica">
+                    <div>
+                        <h4>Jessica Lee</h4>
+                        <small>Today</small>
+                    </div>
+                    <button class="icon-btn-small" title="Send gift">
+                        <i class="fas fa-gift"></i>
+                    </button>
+                </div>
+                <div class="birthday-item">
+                    <img src="https://i.pravatar.cc/150?img=42" alt="Rachel">
+                    <div>
+                        <h4>Rachel Kim</h4>
+                        <small>Tomorrow</small>
+                    </div>
+                    <button class="icon-btn-small" title="Send gift">
+                        <i class="fas fa-gift"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Friends page functionality
+        document.getElementById('profileToggle').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.profile-dropdown')) {
+                document.getElementById('dropdownMenu').classList.remove('active');
+            }
+        });
+
+        // Menu items
+        document.querySelectorAll('.friends-menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.friends-menu-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Add friend buttons
+        document.querySelectorAll('.btn-small.btn-primary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const text = this.textContent.trim();
+                if (text === 'Add Friend') {
+                    this.textContent = 'Request Sent';
+                    this.disabled = true;
+                } else if (text === 'Confirm') {
+                    this.closest('.friend-request-card').style.opacity = '0';
+                    setTimeout(() => {
+                        this.closest('.friend-request-card').remove();
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

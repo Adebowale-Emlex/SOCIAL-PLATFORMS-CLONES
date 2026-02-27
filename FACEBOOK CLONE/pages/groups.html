@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groups - Facebook Clone</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fab fa-facebook-f"></i>
+                <span>facebook</span>
+            </div>
+
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="🔍 Search Facebook">
+            </div>
+
+            <div class="navbar-nav">
+                <a href="../index.html" class="nav-icon" title="Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="watch.html" class="nav-icon" title="Watch">
+                    <i class="fas fa-video"></i>
+                </a>
+                <a href="marketplace.html" class="nav-icon" title="Marketplace">
+                    <i class="fas fa-store"></i>
+                </a>
+                <a href="groups.html" class="nav-icon active" title="Groups">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+
+            <div class="navbar-right">
+                <a href="messages.html" class="icon-btn" title="Messages">
+                    <i class="fas fa-comments"></i>
+                </a>
+                <a href="notifications.html" class="icon-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </a>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" id="profileToggle">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-avatar">
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                        <hr>
+                        <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="groups-container">
+        <aside class="groups-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-users"></i> Groups</h3>
+                <div class="groups-menu">
+                    <a href="#" class="group-item active">
+                        <i class="fas fa-home"></i> Your Groups
+                    </a>
+                    <a href="#" class="group-item">
+                        <i class="fas fa-fire"></i> Discover
+                    </a>
+                    <a href="#" class="group-item">
+                        <i class="fas fa-star"></i> Invitations
+                    </a>
+                    <a href="#" class="group-item">
+                        <i class="fas fa-cog"></i> Manage
+                    </a>
+                </div>
+
+                <h3 style="margin-top: 20px;">Your Groups</h3>
+                <a href="#" class="group-list-item">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=40&h=40&fit=crop" alt="Group">
+                    <div>
+                        <p>Web Developers</p>
+                        <small>2.5K members</small>
+                    </div>
+                </a>
+                <a href="#" class="group-list-item">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=40&h=40&fit=crop" alt="Group">
+                    <div>
+                        <p>React & Vue</p>
+                        <small>1.8K members</small>
+                    </div>
+                </a>
+                <a href="#" class="group-list-item">
+                    <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=40&h=40&fit=crop" alt="Group">
+                    <div>
+                        <p>JavaScript Masters</p>
+                        <small>3.2K members</small>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <main class="groups-feed" id="groupsFeed"></main>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Sample groups data
+        const groups = [
+            {
+                id: 1,
+                name: 'Web Developers Community',
+                cover: 'https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=280&h=120&fit=crop',
+                members: '2,543 members',
+                description: 'A community for web developers'
+            },
+            {
+                id: 2,
+                name: 'React & Vue.js',
+                cover: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=280&h=120&fit=crop',
+                members: '1,892 members',
+                description: 'Discussion on modern JS frameworks'
+            },
+            {
+                id: 3,
+                name: 'JavaScript Masters',
+                cover: 'https://images.unsplash.com/photo-1516321318423-f06f70d504f0?w=280&h=120&fit=crop',
+                members: '3,234 members',
+                description: 'Advanced JavaScript discussions'
+            },
+            {
+                id: 4,
+                name: 'UI/UX Design',
+                cover: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=280&h=120&fit=crop',
+                members: '1,456 members',
+                description: 'Design inspiration and tips'
+            },
+            {
+                id: 5,
+                name: 'Node.js Backend',
+                cover: 'https://images.unsplash.com/photo-1516534775068-bb57c960ba12?w=280&h=120&fit=crop',
+                members: '2,198 members',
+                description: 'Backend development with Node.js'
+            },
+            {
+                id: 6,
+                name: 'Mobile Development',
+                cover: 'https://images.unsplash.com/photo-1512941691920-25d2dba43cbb?w=280&h=120&fit=crop',
+                members: '1,734 members',
+                description: 'Mobile app development'
+            },
+            {
+                id: 7,
+                name: 'DevOps & Cloud',
+                cover: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=280&h=120&fit=crop',
+                members: '987 members',
+                description: 'Cloud infrastructure and deployment'
+            },
+            {
+                id: 8,
+                name: 'Web Security',
+                cover: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=280&h=120&fit=crop',
+                members: '1,203 members',
+                description: 'Web security and best practices'
+            }
+        ];
+
+        // Load groups
+        const groupsGrid = document.getElementById('groupsGrid');
+        groups.forEach(group => {
+            const groupCard = document.createElement('div');
+            groupCard.className = 'group-card';
+            groupCard.innerHTML = `
+                <img src="${group.cover}" alt="${group.name}" class="group-cover">
+                <div class="group-card-info">
+                    <div class="group-name">${group.name}</div>
+                    <div class="group-members">${group.members}</div>
+                    <button class="btn-join">Join Group</button>
+                </div>
+            `;
+            groupsGrid.appendChild(groupCard);
+        });
+
+        // Join group functionality
+        document.querySelectorAll('.btn-join').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.textContent = 'Joined ✓';
+                this.disabled = true;
+                this.style.backgroundColor = '#ccc';
+            });
+        });
+
+        setupProfileDropdown();
+    </script>
+            <!-- SEARCH AND FILTERS -->
+            <div class="groups-header">
+                <h1>Groups</h1>
+                <div class="groups-filters">
+                    <input type="text" placeholder="Search groups" class="groups-search">
+                    <button class="icon-btn-small"><i class="fas fa-ellipsis-h"></i></button>
+                </div>
+            </div>
+
+            <!-- GROUPS YOU MAY LIKE -->
+            <div class="groups-section">
+                <h2>Groups You May Like</h2>
+                <div class="groups-grid">
+                    <div class="group-card">
+                        <div class="group-header-image">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=300&h=150&fit=crop" alt="Group">
+                        </div>
+                        <div class="group-info">
+                            <h3>Web Design Tips & Tricks</h3>
+                            <p>5.2K members • Public Group</p>
+                            <p class="group-description">Learn the latest web design trends, tools, and best practices from industry experts.</p>
+                            <button class="btn btn-primary">Join Group</button>
+                        </div>
+                    </div>
+
+                    <div class="group-card">
+                        <div class="group-header-image">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300&h=150&fit=crop" alt="Group">
+                        </div>
+                        <div class="group-info">
+                            <h3>Frontend Developers Network</h3>
+                            <p>3.8K members • Public Group</p>
+                            <p class="group-description">Connect with frontend developers worldwide and share knowledge about modern frameworks.</p>
+                            <button class="btn btn-primary">Join Group</button>
+                        </div>
+                    </div>
+
+                    <div class="group-card">
+                        <div class="group-header-image">
+                            <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=300&h=150&fit=crop" alt="Group">
+                        </div>
+                        <div class="group-info">
+                            <h3>UI/UX Design Community</h3>
+                            <p>4.1K members • Public Group</p>
+                            <p class="group-description">Share portfolios, get feedback, and discuss the latest in user interface and user experience design.</p>
+                            <button class="btn btn-primary">Join Group</button>
+                        </div>
+                    </div>
+
+                    <div class="group-card">
+                        <div class="group-header-image">
+                            <img src="https://images.unsplash.com/photo-1511576661531-b34c7c5aab00?w=300&h=150&fit=crop" alt="Group">
+                        </div>
+                        <div class="group-info">
+                            <h3>Tech Entrepreneurs Club</h3>
+                            <p>2.9K members • Public Group</p>
+                            <p class="group-description">Network with fellow entrepreneurs and discuss startup ideas, funding, and growth strategies.</p>
+                            <button class="btn btn-primary">Join Group</button>
+                        </div>
+                    </div>
+
+                    <div class="group-card">
+                        <div class="group-header-image">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=150&fit=crop" alt="Group">
+                        </div>
+                        <div class="group-info">
+                            <h3>Coding Challenges & Contests</h3>
+                            <p>6.3K members • Public Group</p>
+                            <p class="group-description">Participate in coding contests and solve programming challenges to improve your skills.</p>
+                            <button class="btn btn-primary">Join Group</button>
+                        </div>
+                    </div>
+
+                    <div class="group-card">
+                        <div class="group-header-image">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&h=150&fit=crop" alt="Group">
+                        </div>
+                        <div class="group-info">
+                            <h3>Digital Marketing Professionals</h3>
+                            <p>4.7K members • Public Group</p>
+                            <p class="group-description">Connect with digital marketing experts and share strategies for social media and online advertising.</p>
+                            <button class="btn btn-primary">Join Group</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YOUR ACTIVE GROUPS -->
+            <div class="groups-section">
+                <h2>Your Active Groups</h2>
+                <div class="active-groups-list">
+                    <div class="active-group-item">
+                        <div class="group-avatar">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=60&h=60&fit=crop" alt="Group">
+                        </div>
+                        <div class="group-details">
+                            <h3>Web Developers</h3>
+                            <p>2.5K members • 324 posts today</p>
+                            <p class="group-description">A community for web developers to share knowledge and collaborate on projects.</p>
+                        </div>
+                        <div class="group-actions">
+                            <button class="btn-small btn-secondary">Visit</button>
+                            <button class="icon-btn-small"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="active-group-item">
+                        <div class="group-avatar">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=60&h=60&fit=crop" alt="Group">
+                        </div>
+                        <div class="group-details">
+                            <h3>React & Vue Framework Enthusiasts</h3>
+                            <p>1.8K members • 156 posts today</p>
+                            <p class="group-description">Learning and discussing modern JavaScript frontend frameworks.</p>
+                        </div>
+                        <div class="group-actions">
+                            <button class="btn-small btn-secondary">Visit</button>
+                            <button class="icon-btn-small"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="active-group-item">
+                        <div class="group-avatar">
+                            <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=60&h=60&fit=crop" alt="Group">
+                        </div>
+                        <div class="group-details">
+                            <h3>JavaScript Masters</h3>
+                            <p>3.2K members • 512 posts today</p>
+                            <p class="group-description">Advanced JavaScript techniques and coding best practices.</p>
+                        </div>
+                        <div class="group-actions">
+                            <button class="btn-small btn-secondary">Visit</button>
+                            <button class="icon-btn-small"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="groups-sidebar-right">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-info-circle"></i> Group Tips</h3>
+                <div class="tip-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>Help moderate discussions by posting helpful resources</p>
+                </div>
+                <div class="tip-item">
+                    <i class="fas fa-handshake"></i>
+                    <p>Invite friends to join your favorite groups</p>
+                </div>
+                <div class="tip-item">
+                    <i class="fas fa-speech-bubble"></i>
+                    <p>Be respectful and follow the community guidelines</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Groups page functionality
+        document.getElementById('profileToggle').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.profile-dropdown')) {
+                document.getElementById('dropdownMenu').classList.remove('active');
+            }
+        });
+
+        // Menu items
+        document.querySelectorAll('.groups-menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.groups-menu-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Group list items
+        document.querySelectorAll('.group-list-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Visiting group:', this.querySelector('p').textContent);
+            });
+        });
+
+        // Join group button
+        document.querySelectorAll('.group-card .btn-primary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.textContent = 'Joined ✓';
+                this.disabled = true;
+            });
+        });
+
+        // Visit group button
+        document.querySelectorAll('.btn-small.btn-secondary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                console.log('Visiting group');
+            });
+        });
+    </script>
+</body>
+</html>

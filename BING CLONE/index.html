@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binge - Streaming Entertainment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fas fa-play-circle"></i>
+                <span>BINGE</span>
+            </div>
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search shows and movies...">
+            </div>
+            <div class="navbar-menu">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Browse</a>
+                <a href="#" class="nav-link">My List</a>
+                <a href="#" class="nav-link">Downloads</a>
+                <button class="profile-btn">
+                    <img src="https://i.pravatar.cc/40?img=1" alt="Profile">
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>The Last of Us</h1>
+            <p>A deadly fungus spreads across the globe, and a young girl might be key to humanity's salvation.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-play"><i class="fas fa-play"></i> Play Now</button>
+                <button class="btn btn-info"><i class="fas fa-info-circle"></i> More Info</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800&h=450&fit=crop" alt="Featured">
+        </div>
+    </div>
+
+    <div class="categories-section">
+        <h2>Categories</h2>
+        <div class="categories-list">
+            <button class="category-btn active">All</button>
+            <button class="category-btn">Drama</button>
+            <button class="category-btn">Action</button>
+            <button class="category-btn">Comedy</button>
+            <button class="category-btn">Horror</button>
+            <button class="category-btn">Documentary</button>
+            <button class="category-btn">Anime</button>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <section class="section">
+            <h2>Trending Now</h2>
+            <div class="shows-grid" id="trendingGrid">
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Continue Watching</h2>
+            <div class="shows-grid" id="continueWatching">
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>New Releases</h2>
+            <div class="shows-grid" id="newReleases">
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Award Winners</h2>
+            <div class="shows-grid" id="awardWinners">
+            </div>
+        </section>
+    </div>
+
+    <div class="player-modal" id="playerModal">
+        <div class="player-container">
+            <button class="close-player" id="closePlayer">&times;</button>
+            <div class="video-player">
+                <video id="videoPlayer" controls>
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="player-info">
+                <h2 id="playerTitle">Show Title</h2>
+                <div class="episode-info">
+                    <span>Season 1</span> • <span>Episode 1</span>
+                </div>
+                <p id="playerDescription">Show description goes here</p>
+                <div class="player-controls">
+                    <button class="btn btn-primary">Thumbs Up</button>
+                    <button class="btn btn-secondary">Add to List</button>
+                    <button class="btn btn-secondary">Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-section">
+                <h3>Help</h3>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Cookies</a>
+            </div>
+            <div class="footer-section">
+                <h3>Social</h3>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Binge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

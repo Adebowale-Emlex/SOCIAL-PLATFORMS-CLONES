@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch - Facebook Clone</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fab fa-facebook-f"></i>
+                <span>facebook</span>
+            </div>
+
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="🔍 Search Facebook">
+            </div>
+
+            <div class="navbar-nav">
+                <a href="../index.html" class="nav-icon" title="Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="watch.html" class="nav-icon active" title="Watch">
+                    <i class="fas fa-video"></i>
+                </a>
+                <a href="marketplace.html" class="nav-icon" title="Marketplace">
+                    <i class="fas fa-store"></i>
+                </a>
+                <a href="groups.html" class="nav-icon" title="Groups">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+
+            <div class="navbar-right">
+                <a href="messages.html" class="icon-btn" title="Messages">
+                    <i class="fas fa-comments"></i>
+                </a>
+                <a href="notifications.html" class="icon-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </a>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" id="profileToggle">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-avatar">
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                        <hr>
+                        <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="watch-container">
+        <aside class="watch-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-play-circle"></i> Watch</h3>
+                <div class="watch-menu">
+                    <a href="#" class="watch-menu-item active">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="#" class="watch-menu-item">
+                        <i class="fas fa-fire"></i> Popular
+                    </a>
+                    <a href="#" class="watch-menu-item">
+                        <i class="fas fa-star"></i> Saved Videos
+                    </a>
+                    <a href="#" class="watch-menu-item">
+                        <i class="fas fa-history"></i> Watch History
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Explore</h3>
+                <a href="#" class="watch-menu-item"><i class="fas fa-music"></i> Music</a>
+                <a href="#" class="watch-menu-item"><i class="fas fa-basketball"></i> Sports</a>
+                <a href="#" class="watch-menu-item"><i class="fas fa-gamepad"></i> Gaming</a>
+                <a href="#" class="watch-menu-item"><i class="fas fa-film"></i> Entertainment</a>
+                <a href="#" class="watch-menu-item"><i class="fas fa-cookie"></i> Food & Cooking</a>
+                <a href="#" class="watch-menu-item"><i class="fas fa-flask"></i> Science & Tech</a>
+            </div>
+        </aside>
+
+        <!-- CENTER FEED -->
+        <main class="watch-feed">
+            <div class="watch-grid" id="videoGrid">
+                <!-- Videos will be loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Sample video data
+        const videos = [
+            {
+                id: 1,
+                title: 'React Tutorial - Build Amazing Web Apps',
+                channel: 'Code Masters',
+                thumbnail: 'https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=240&h=140&fit=crop',
+                views: '2.5M views',
+                time: '2 days ago'
+            },
+            {
+                id: 2,
+                title: 'Web Development Roadmap 2024',
+                channel: 'Dev Academy',
+                thumbnail: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=240&h=140&fit=crop',
+                views: '1.2M views',
+                time: '1 week ago'
+            },
+            {
+                id: 3,
+                title: 'JavaScript Advanced Concepts',
+                channel: 'JavaScript Pro',
+                thumbnail: 'https://images.unsplash.com/photo-1516321318423-f06f70d504f0?w=240&h=140&fit=crop',
+                views: '856K views',
+                time: '3 days ago'
+            },
+            {
+                id: 4,
+                title: 'CSS Mastery for Modern Design',
+                channel: 'Design Hub',
+                thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=240&h=140&fit=crop',
+                views: '945K views',
+                time: '5 days ago'
+            },
+            {
+                id: 5,
+                title: 'Node.js Backend Development Complete Guide',
+                channel: 'Backend Zone',
+                thumbnail: 'https://images.unsplash.com/photo-1516534775068-bb57c960ba12?w=240&h=140&fit=crop',
+                views: '1.8M views',
+                time: '1 week ago'
+            },
+            {
+                id: 6,
+                title: 'Database Design Principles',
+                channel: 'Data Masters',
+                thumbnail: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=240&h=140&fit=crop',
+                views: '634K views',
+                time: '2 weeks ago'
+            },
+            {
+                id: 7,
+                title: 'Mobile App Development with React Native',
+                channel: 'Mobile Dev',
+                thumbnail: 'https://images.unsplash.com/photo-1512941691920-25d2dba43cbb?w=240&h=140&fit=crop',
+                views: '2.1M views',
+                time: '10 days ago'
+            },
+            {
+                id: 8,
+                title: 'Web Security Best Practices',
+                channel: 'Security Pro',
+                thumbnail: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=240&h=140&fit=crop',
+                views: '789K views',
+                time: '1 week ago'
+            }
+        ];
+
+        // Load videos
+        const videoGrid = document.getElementById('videoGrid');
+        videos.forEach(video => {
+            const videoCard = document.createElement('div');
+            videoCard.className = 'video-card';
+            videoCard.innerHTML = `
+                <div class="video-thumbnail">
+                    <img src="${video.thumbnail}" alt="${video.title}">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">${video.title}</div>
+                    <div class="video-channel">${video.channel}</div>
+                    <div class="video-stats">${video.views} • ${video.time}</div>
+                </div>
+            `;
+            videoGrid.appendChild(videoCard);
+        });
+
+        setupProfileDropdown();
+    </script>
+                <a href="#" class="watch-menu-item"><i class="fas fa-graduation-cap"></i> Education</a>
+            </div>
+        </aside>
+
+        <!-- CENTER CONTENT -->
+        <main class="watch-content">
+            <!-- FEATURED VIDEO -->
+            <div class="featured-video">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1485579149c01123123?w=800&h=450&fit=crop" alt="Featured">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-duration">12:34</div>
+                </div>
+                <div class="featured-info">
+                    <h2>Web Development Tutorial for Beginners</h2>
+                    <p>Learn the basics of web development and start your coding journey today!</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 1.2M views</span>
+                        <span><i class="fas fa-calendar"></i> 2 days ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIDEO SECTIONS -->
+            <div class="watch-section">
+                <h2>Recommended For You</h2>
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">8:45</div>
+                        </div>
+                        <h4>React Hooks Deep Dive</h4>
+                        <small>Tech Academy • 523K views • 1 week ago</small>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">15:20</div>
+                        </div>
+                        <h4>Best Beaches Around The World</h4>
+                        <small>Travel Channel • 2.1M views • 3 days ago</small>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">22:15</div>
+                        </div>
+                        <h4>Cooking Like a Pro - Pasta Edition</h4>
+                        <small>Food Network • 892K views • 5 days ago</small>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1511576661531-b34c7c5aab00?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">31:00</div>
+                        </div>
+                        <h4>Fitness Workout - Full Body Training</h4>
+                        <small>Fitness Pro • 1.5M views • 1 week ago</small>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">18:50</div>
+                        </div>
+                        <h4>Photography Tips for Beginners</h4>
+                        <small>Creative Lab • 654K views • 2 weeks ago</small>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">45:30</div>
+                        </div>
+                        <h4>JavaScript Advanced Concepts</h4>
+                        <small>Code Masters • 1.8M views • 2 weeks ago</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRENDING VIDEOS -->
+            <div class="watch-section">
+                <h2>Trending Videos</h2>
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">5:30</div>
+                        </div>
+                        <h4>Funny Moments Compilation</h4>
+                        <small>Viral Videos • 5.2M views • 3 hours ago</small>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1514821228042-2b8823db3812?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">12:45</div>
+                        </div>
+                        <h4>Tech Review - Latest Gadgets</h4>
+                        <small>Tech Reviewers • 3.4M views • 6 hours ago</small>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1478292684442-818db782db4e?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">9:20</div>
+                        </div>
+                        <h4>Daily News Update</h4>
+                        <small>News Channel • 2.1M views • 2 hours ago</small>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1487260211351-7ee86fba8c5a?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">28:15</div>
+                        </div>
+                        <h4>Music Festival Highlights</h4>
+                        <small>Entertainment • 4.7M views • 5 hours ago</small>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1478292684442-818db782db4e?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">15:00</div>
+                        </div>
+                        <h4>Gaming Marathon - Live Reaction</h4>
+                        <small>Gaming Channel • 1.9M views • 1 hour ago</small>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1487260211351-7ee86fba8c5a?w=300&h=170&fit=crop" alt="Video">
+                            <div class="play-button-small"><i class="fas fa-play"></i></div>
+                            <div class="video-duration">11:30</div>
+                        </div>
+                        <h4>Celebrity Interview Special</h4>
+                        <small>Talk Show • 2.8M views • 4 hours ago</small>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="watch-sidebar-right">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-fire"></i> Trending Now</h3>
+                <div class="trending-item">
+                    <h4>#TechTrends</h4>
+                    <small>2.5M posts</small>
+                </div>
+                <div class="trending-item">
+                    <h4>#FitnessChallenge</h4>
+                    <small>1.8M posts</small>
+                </div>
+                <div class="trending-item">
+                    <h4>#ComedyHour</h4>
+                    <small>3.2M posts</small>
+                </div>
+                <div class="trending-item">
+                    <h4>#TravelDiaries</h4>
+                    <small>2.1M posts</small>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Watch page functionality
+        document.getElementById('profileToggle').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.profile-dropdown')) {
+                document.getElementById('dropdownMenu').classList.remove('active');
+            }
+        });
+
+        // Watch menu items
+        document.querySelectorAll('.watch-menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.watch-menu-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Video cards click
+        document.querySelectorAll('.video-card').forEach(card => {
+            card.addEventListener('click', function() {
+                console.log('Playing video:', this.querySelector('h4').textContent);
+            });
+        });
+
+        // Featured video click
+        document.querySelector('.featured-video').addEventListener('click', function() {
+            console.log('Playing featured video');
+        });
+    </script>
+</body>
+</html>

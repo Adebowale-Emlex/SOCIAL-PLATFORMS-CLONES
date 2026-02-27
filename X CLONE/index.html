@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X - What's happening</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fab fa-x-twitter"></i>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-search"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="far fa-bell"></i>
+                    <span>Notifications</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="far fa-envelope"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="far fa-bookmark"></i>
+                    <span>Bookmarks</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="far fa-list-alt"></i>
+                    <span>Lists</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="far fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-ellipsis"></i>
+                    <span>More</span>
+                </a>
+            </nav>
+
+            <button class="post-btn">Post</button>
+        </aside>
+
+        <main class="main-feed">
+            <div class="feed-header">
+                <h2>Home</h2>
+                <button class="sparkle-btn">
+                    <i class="fas fa-star"></i>
+                </button>
+            </div>
+
+            <div class="compose-tweet">
+                <img src="https://i.pravatar.cc/50?img=1" alt="Your avatar" class="compose-avatar">
+                <div class="compose-content">
+                    <textarea id="tweetText" placeholder="What's happening?!" rows="3"></textarea>
+                    <div class="compose-actions">
+                        <div class="compose-icons">
+                            <button class="compose-icon">
+                                <i class="fas fa-image"></i>
+                            </button>
+                            <button class="compose-icon">
+                                <i class="fas fa-file-video"></i>
+                            </button>
+                            <button class="compose-icon">
+                                <i class="fas fa-smile"></i>
+                            </button>
+                            <button class="compose-icon">
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                        <button class="post-tweet-btn" id="postTweetBtn">Post</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feed-divider"></div>
+
+            <div class="tweets-feed" id="tweetsFeed">
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search X">
+            </div>
+
+            <div class="trending-section">
+                <h2>What's happening</h2>
+                <div class="trending-list" id="trendingList">
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

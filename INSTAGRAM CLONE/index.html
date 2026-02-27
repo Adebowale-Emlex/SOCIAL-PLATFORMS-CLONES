@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram - Share Your Moments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-search"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Notifications</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+            <button class="create-btn">
+                <i class="fas fa-plus"></i>
+                <span>Create</span>
+            </button>
+        </aside>
+
+        <main class="main-content">
+            <div class="feed-container">
+                <div class="stories-section">
+                    <div class="stories-wrapper">
+                        <div class="add-story">
+                            <div class="add-story-avatar">
+                                <img src="https://i.pravatar.cc/60?img=1" alt="Your Story">
+                                <div class="plus-icon">+</div>
+                            </div>
+                            <p>Your Story</p>
+                        </div>
+                        <div class="story-item">
+                            <img src="https://i.pravatar.cc/60?img=2" alt="Story">
+                            <p>sarah_a</p>
+                        </div>
+                        <div class="story-item">
+                            <img src="https://i.pravatar.cc/60?img=3" alt="Story">
+                            <p>mike_j</p>
+                        </div>
+                        <div class="story-item">
+                            <img src="https://i.pravatar.cc/60?img=4" alt="Story">
+                            <p>emily_c</p>
+                        </div>
+                        <div class="story-item">
+                            <img src="https://i.pravatar.cc/60?img=5" alt="Story">
+                            <p>alex_r</p>
+                        </div>
+                        <div class="story-item">
+                            <img src="https://i.pravatar.cc/60?img=6" alt="Story">
+                            <p>jessica_l</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-creation">
+                    <img src="https://i.pravatar.cc/50?img=1" alt="Profile" class="user-avatar">
+                    <input type="text" placeholder="What's on your mind?" class="post-input" id="postInput">
+                </div>
+
+                <div class="posts-feed" id="postsFeed">
+                </div>
+            </div>
+
+            <aside class="right-sidebar">
+                <div class="suggestions-card">
+                    <div class="suggestions-header">
+                        <h3>Suggestions For You</h3>
+                        <a href="#">See All</a>
+                    </div>
+                    <div class="suggestions-list" id="suggestionsList">
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <div class="modal" id="postModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2>Create a Post</h2>
+            <form id="postForm">
+                <textarea placeholder="What's on your mind?" id="postCaption" rows="4"></textarea>
+                <input type="file" id="postImage" accept="image/*">
+                <button type="submit" class="submit-btn">Post</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
