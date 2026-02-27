@@ -48,9 +48,12 @@ body {
     font-weight: 900;
     color: var(--secondary-color);
     text-decoration: none;
-    min-width: fit-content;
+    min-width: -webkit-fill-available;
+
     letter-spacing: 2px;
 }
+
+.modal {
 
 .navbar-logo i {
     font-size: 32px;

@@ -136,7 +136,8 @@ body {
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    min-width: fit-content;
+    min-width: -webkit-fill-available;
+    min-width: -webkit-fill-available;
     flex-shrink: 0;
 }
 
