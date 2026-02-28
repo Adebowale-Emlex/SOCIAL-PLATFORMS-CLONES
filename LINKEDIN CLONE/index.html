@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Clone - Professional Network</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search" id="searchInput">
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-link" id="networkLink">
+                    <i class="fas fa-user-friends"></i>
+                    <span>My Network</span>
+                    <span class="badge" id="networkBadge">5</span>
+                </a>
+                <a href="#" class="nav-link" id="jobsLink">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Jobs</span>
+                </a>
+                <a href="#" class="nav-link" id="messagingLink">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Messaging</span>
+                    <span class="badge" id="messageBadge">3</span>
+                </a>
+                <a href="#" class="nav-link" id="notificationsLink">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                    <span class="badge" id="notificationBadge">8</span>
+                </a>
+                <div class="nav-profile">
+                    <img src="https://i.pravatar.cc/150?img=33" alt="Profile">
+                    <span>Me <i class="fas fa-caret-down"></i></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left Sidebar -->
+        <aside class="left-sidebar">
+            <div class="profile-card">
+                <div class="profile-cover"></div>
+                <div class="profile-info">
+                    <img src="https://i.pravatar.cc/150?img=33" alt="Profile" class="profile-avatar">
+                    <h3>John Anderson</h3>
+                    <p class="profile-headline">Senior Software Engineer at Tech Corp</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-label">Connections</span>
+                            <span class="stat-value">500+</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Profile views</span>
+                            <span class="stat-value">124</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-section">
+                <h4><i class="fas fa-bookmark"></i> My Items</h4>
+                <ul class="sidebar-links">
+                    <li><i class="fas fa-users"></i> Groups</li>
+                    <li><i class="fas fa-calendar"></i> Events</li>
+                    <li><i class="fas fa-newspaper"></i> Newsletters</li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h4>Recent</h4>
+                <ul class="recent-links">
+                    <li><i class="fas fa-hashtag"></i> javascript</li>
+                    <li><i class="fas fa-hashtag"></i> webdevelopment</li>
+                    <li><i class="fas fa-hashtag"></i> react</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Feed -->
+        <main class="main-feed">
+            <!-- Create Post -->
+            <div class="create-post">
+                <div class="post-input-container">
+                    <img src="https://i.pravatar.cc/150?img=33" alt="Profile">
+                    <button class="start-post" id="startPostBtn">Start a post</button>
+                </div>
+                <div class="post-options">
+                    <button class="post-option">
+                        <i class="fas fa-image" style="color: #70B5F9;"></i>
+                        Photo
+                    </button>
+                    <button class="post-option">
+                        <i class="fas fa-video" style="color: #7FC15E;"></i>
+                        Video
+                    </button>
+                    <button class="post-option">
+                        <i class="fas fa-calendar" style="color: #E7A33E;"></i>
+                        Event
+                    </button>
+                    <button class="post-option">
+                        <i class="fas fa-newspaper" style="color: #FC9295;"></i>
+                        Write article
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sort Options -->
+            <div class="sort-bar">
+                <hr>
+                <span>Sort by: <strong>Top <i class="fas fa-caret-down"></i></strong></span>
+            </div>
+
+            <!-- Posts Feed -->
+            <div id="postsContainer"></div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <div class="news-section">
+                <h3>LinkedIn News</h3>
+                <ul class="news-list" id="newsList"></ul>
+            </div>
+            <div class="suggestions-section">
+                <h3>People you may know</h3>
+                <div id="suggestionsContainer"></div>
+            </div>
+            <footer class="linkedin-footer">
+                <a href="#">About</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy & Terms</a>
+                <a href="#">Ad Choices</a>
+                <a href="#">Advertising</a>
+                <a href="#">Business Services</a>
+                <a href="#">Get the LinkedIn app</a>
+                <a href="#">More</a>
+                <div class="footer-logo">
+                    <span><i class="fab fa-linkedin"></i> LinkedIn Corporation © 2026</span>
+                </div>
+            </footer>
+        </aside>
+    </div>
+
+    <!-- Post Modal -->
+    <div id="postModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create a post</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-profile">
+                    <img src="https://i.pravatar.cc/150?img=33" alt="Profile">
+                    <div>
+                        <h4>John Anderson</h4>
+                        <button class="visibility-btn">
+                            <i class="fas fa-globe-americas"></i> Anyone
+                            <i class="fas fa-caret-down"></i>
+                        </button>
+                    </div>
+                </div>
+                <textarea id="postContent" placeholder="What do you want to talk about?"></textarea>
+                <div class="modal-options">
+                    <button class="modal-option"><i class="fas fa-image"></i></button>
+                    <button class="modal-option"><i class="fas fa-video"></i></button>
+                    <button class="modal-option"><i class="fas fa-sticky-note"></i></button>
+                    <button class="modal-option"><i class="fas fa-briefcase"></i></button>
+                    <button class="modal-option"><i class="fas fa-chart-line"></i></button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="postSubmitBtn" class="post-submit-btn">Post</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Network Modal -->
+    <div id="networkModal" class="modal">
+        <div class="modal-content network-modal">
+            <div class="modal-header">
+                <h3>Manage my network</h3>
+                <button class="close-modal" id="closeNetworkModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="network-tabs">
+                    <button class="network-tab active">Invitations</button>
+                    <button class="network-tab">Connections</button>
+                </div>
+                <div id="networkContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jobs Modal -->
+    <div id="jobsModal" class="modal">
+        <div class="modal-content jobs-modal">
+            <div class="modal-header">
+                <h3>Recommended Jobs</h3>
+                <button class="close-modal" id="closeJobsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="jobsContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messaging Modal -->
+    <div id="messagingModal" class="modal">
+        <div class="modal-content messaging-modal">
+            <div class="modal-header">
+                <h3>Messaging</h3>
+                <button class="close-modal" id="closeMessagingModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="messaging-container">
+                    <div class="conversations-list" id="conversationsList"></div>
+                    <div class="message-view" id="messageView">
+                        <p class="no-conversation">Select a conversation to view messages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications Modal -->
+    <div id="notificationsModal" class="modal">
+        <div class="modal-content notifications-modal">
+            <div class="modal-header">
+                <h3>Notifications</h3>
+                <button class="close-modal" id="closeNotificationsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="notificationsContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
